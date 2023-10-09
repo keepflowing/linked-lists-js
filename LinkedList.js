@@ -9,16 +9,25 @@ export default class LinkedList {
    */
   constructor() {
     this.head = null;
-    this.size = 0;
   }
-
+  /**
+   * @return {int} the size of the list
+   */
+  size() {
+    let count = 0;
+    let current = this.head;
+    while (current) {
+      count++;
+      current = current.nextNode;
+    }
+    return count;
+  }
   /**
    * Insert first node (head)
    * @param {*} value
    */
   prepend(value) {
     this.head = new Node(value, this.head);
-    this.size++;
   }
   /**
    * Insert last node (tail)
@@ -26,18 +35,15 @@ export default class LinkedList {
    */
   append(value) {
     const node = new Node(value);
-    let current;
-
     // If there is no head (empty list) make it head
     if (!this.head) {
       this.head = node;
     } else {
-      current = this.head;
+      let current = this.head;
       while (current.nextNode) {
         current = current.nextNode;
       }
       current.nextNode = node;
-      this.size++;
     }
   }
 
@@ -61,10 +67,11 @@ export default class LinkedList {
   }
 
   /**
+   * Calls function 'at' with length of list - 1
    * @return {*} last node in list
    */
   tail() {
-    return this.at(this.size-1);
+    return this.at(this.size()-1);
   }
   // Insert at index
 
