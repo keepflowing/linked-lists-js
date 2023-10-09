@@ -4,11 +4,11 @@
  */
 export default class Node {
   /**
-   * @param {*} data data for the node
-   * @param {*} next pointer to next node
+   * @param {*} value data for the node
+   * @param {*} nextNode pointer to next node
    */
-  constructor(data, next = null) {
-    this.data = data;
-    this.next = next;
+  constructor(value, nextNode = null) {
+    this.value = value;
+    this.nextNode = nextNode;
   }
 }
