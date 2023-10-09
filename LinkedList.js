@@ -10,6 +10,7 @@ export default class LinkedList {
   constructor() {
     this.head = null;
   }
+
   /**
    * @return {int} the size of the list
    */
@@ -22,6 +23,7 @@ export default class LinkedList {
     }
     return count;
   }
+
   /**
    * Insert first node (head)
    * @param {*} value
@@ -29,6 +31,7 @@ export default class LinkedList {
   prepend(value) {
     this.head = new Node(value, this.head);
   }
+
   /**
    * Insert last node (tail)
    * @param {*} value
@@ -79,5 +82,22 @@ export default class LinkedList {
 
   // Clear list
 
-  // Print list data
+  /**
+   * Format list data to a string
+   * @return {string}
+   */
+  toString() {
+    if (!this.head) {
+      return '( )';
+    } else {
+      let str = '';
+      let current = this.head;
+      while (current) {
+        str += `( ${current.value} ) -> `;
+        current = current.nextNode;
+      }
+      str += 'null';
+      return str;
+    }
+  }
 }
