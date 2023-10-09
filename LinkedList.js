@@ -14,7 +14,7 @@ export default class LinkedList {
 
   /**
    * Insert first node (head)
-   * @param {*} value data
+   * @param {*} value
    */
   prepend(value) {
     this.head = new Node(value, this.head);
@@ -22,7 +22,7 @@ export default class LinkedList {
   }
   /**
    * Insert last node (tail)
-   * @param {*} value data
+   * @param {*} value
    */
   append(value) {
     const node = new Node(value);
@@ -40,9 +40,33 @@ export default class LinkedList {
       this.size++;
     }
   }
-  // Insert at index
 
-  // Get at index
+  /**
+   * Get node at index
+   * @param {int} index
+   * @return {*} node or null if index doesn't exist
+   */
+  at(index) {
+    let current = this.head;
+    let count = 0;
+
+    while (current) {
+      if (count === index) {
+        return current;
+      }
+      count++;
+      current = current.nextNode;
+    }
+    return null;
+  }
+
+  /**
+   * @return {*} last node in list
+   */
+  tail() {
+    return this.at(this.size-1);
+  }
+  // Insert at index
 
   // Remove at index
 
