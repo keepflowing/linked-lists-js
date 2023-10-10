@@ -79,6 +79,9 @@ export default class LinkedList {
    * Removes last Node
    */
   pop() {
+    if (!this.head) {
+      return;
+    }
     let prev;
     let current = this.head;
     while (current.nextNode) {
@@ -87,11 +90,25 @@ export default class LinkedList {
     }
     prev.nextNode = null;
   }
+
+  /**
+   * Check if list contains a Node with value
+   * @param {*} value
+   * @return {bool}
+   */
+  contains(value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.nextNode;
+    }
+    return false;
+  }
   // Insert at index
 
   // Remove at index
-
-  // Clear list
 
   /**
    * Format list data to a string
