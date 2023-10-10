@@ -4,9 +4,7 @@ import Node from './Node.js';
  * @module LinkedList
  */
 export default class LinkedList {
-  /**
-   * Create empty linked list
-   */
+  /** Create empty linked list */
   constructor() {
     this.head = null;
   }
@@ -75,6 +73,19 @@ export default class LinkedList {
    */
   tail() {
     return this.at(this.size()-1);
+  }
+
+  /**
+   * Removes last Node
+   */
+  pop() {
+    let prev;
+    let current = this.head;
+    while (current.nextNode) {
+      prev = current;
+      current = current.nextNode;
+    }
+    prev.nextNode = null;
   }
   // Insert at index
 
