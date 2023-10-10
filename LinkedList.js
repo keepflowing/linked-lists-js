@@ -106,6 +106,27 @@ export default class LinkedList {
     }
     return false;
   }
+
+  /**
+   * Find index of first Node containing value
+   * @param {*} value
+   * @return {int}
+   */
+  find(value) {
+    if (!this.head) {
+      return;
+    }
+    let current = this.head;
+    let index = 0;
+    while (current) {
+      if (current.value === value) {
+        return index;
+      }
+      current = current.nextNode;
+      index++;
+    }
+    return null;
+  }
   // Insert at index
 
   // Remove at index
