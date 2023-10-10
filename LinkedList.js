@@ -114,7 +114,7 @@ export default class LinkedList {
    */
   find(value) {
     if (!this.head) {
-      return;
+      return null;
     }
     let current = this.head;
     let index = 0;
@@ -127,10 +127,44 @@ export default class LinkedList {
     }
     return null;
   }
-  // Insert at index
 
-  // Remove at index
+  /**
+   * Insert a new node with value at index
+   * @param {*} value
+   * @param {int} index
+   */
+  insertAt(value, index) {
+    const before = this.at(index-1);
+    const after = this.at(index);
 
+    if (after) {
+      const node = new Node(value, after);
+      if (!before) {
+        this.prepend(value);
+      } else {
+        before.nextNode = node;
+      }
+    } else {
+      this.append(value);
+    }
+  }
+
+  /**
+   * Remove this Node at index
+   * @param {int} index
+   */
+  removeAt(index) {
+    const before = this.at(index-1);
+    const after = this.at(index+1);
+
+    if (after) {
+      if (!before) {
+        this.head = this.at(1);
+      } else {
+        before.nextNode = after;
+      }
+    }
+  }
   /**
    * Format list data to a string
    * @return {string}
